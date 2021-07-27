@@ -8,6 +8,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.jh.blog_004.config.auth.PrincipalDetail;
 import com.jh.blog_004.service.BoardService;
@@ -22,6 +23,12 @@ public class BoardController {
 	public String index(Model model, @PageableDefault(size=5, sort="id", direction=Sort.Direction.DESC) Pageable pageable) {
 		model.addAttribute("boards", boardService.boardList(pageable));
 		return "index";
+	}
+	
+	@GetMapping("/board/{id}")
+	public String findById(@PathVariable int id, Model model) {
+		model.addAttribute("board", boardService.boardDetail(id));
+		return "board/detail";
 	}
 	
 	@GetMapping("/board/saveForm")

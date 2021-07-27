@@ -8,7 +8,7 @@
 		<div class="card m-3">
 			<div class="card-body">
 				<h4 class="card-title">${board.title}</h4>
-				<a href="#" class="btn btn-primary">detail</a>
+				<a href="/board/${board.id}" class="btn btn-primary">detail</a>
 			</div>
 		</div>
 	</c:forEach>
