@@ -8,15 +8,20 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.jh.blog_004.dto.ReplySaveRequestDto;
 import com.jh.blog_004.model.Board;
 import com.jh.blog_004.model.User;
 import com.jh.blog_004.repository.BoardRepository;
+import com.jh.blog_004.repository.ReplyRepository;
 
 @Service
 public class BoardService {
 
 	@Autowired
 	private BoardRepository boardRepository;
+	
+	@Autowired
+	private ReplyRepository replyRepository;
 	
 	@Transactional
 	public void boardWrite(Board board, User user) { //title, content
@@ -51,6 +56,11 @@ public class BoardService {
 	@Transactional
 	public void boardDelete(int id) {
 		boardRepository.deleteById(id);
+	}
+	
+	@Transactional
+	public void replyWrite(ReplySaveRequestDto replySaveRequestDto) {
+		replyRepository.mSave(replySaveRequestDto.getUserId(), replySaveRequestDto.getBoardId(), replySaveRequestDto.getContent());
 	}
 	
 }
