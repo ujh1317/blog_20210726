@@ -39,7 +39,6 @@ public class Board {
 	@Lob
 	private String content; //섬머노트
 	
-	@ColumnDefault("0")
 	private int count; //조회수
 	
 	@ManyToOne(fetch = FetchType.EAGER)
