@@ -29,7 +29,8 @@ public class UserService {
 	
 	@Transactional
 	public void userUpdate(User user) {
-		User persistance = userRepository.findById(user.getId()).orElseThrow(()->{
+		User persistance = userRepository.findById(user.getId())
+				.orElseThrow(()->{
 			return new IllegalArgumentException("회원찾기 실패");
 		});
 		
@@ -44,7 +45,8 @@ public class UserService {
 	
 	@Transactional(readOnly = true)
 	public User findByUser(String username) {
-		User user = userRepository.findByUsername(username).orElseGet(()->{
+		User user = userRepository.findByUsername(username)
+				.orElseGet(()->{
 			return new User();
 		});
 		return user;

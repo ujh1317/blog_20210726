@@ -3,6 +3,7 @@ package com.jh.blog_004.model;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -48,7 +49,7 @@ public class Board {
 	@JoinColumn(name = "userId")
 	private User user;
 	
-	@OneToMany(mappedBy = "board", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "board", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties({"board"}) //무한참조 방지
 	@OrderBy("id desc")
 	private List<Reply> replys;

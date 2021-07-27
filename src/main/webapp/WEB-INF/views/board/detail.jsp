@@ -11,7 +11,8 @@
 	</c:if>
 	<br /><br />
 	<div>
-		글번호 : <span id="id"><i>${board.id} </i></span>&nbsp;&nbsp; 작성자 : <span><i>${board.user.username} </i></span>
+		글번호 : <span id="id"><i>${board.id} </i></span>&nbsp;&nbsp; 
+		작성자 : <span><i>${board.user.username} </i></span>
 	</div>
 	<br />
 	<div>
