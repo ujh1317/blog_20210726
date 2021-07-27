@@ -30,7 +30,7 @@ let index = {
 			dataType: "json"
 		}).done(function(resp){
 			alert("글쓰기가 완료 되었습니다.");
-			console.log(resp);
+			//console.log(resp);
 			location.href="/";
 		}).fail(function(error){
 			alert(JSON.stringify(error));
@@ -53,7 +53,7 @@ let index = {
 			dataType: "json"
 		}).done(function(resp){
 			alert("수정이 완료 되었습니다.");
-			console.log(resp);
+			//console.log(resp);
 			location.href="/";
 		}).fail(function(error){
 			alert(JSON.stringify(error));
@@ -69,7 +69,6 @@ let index = {
 			dataType: "json"
 		}).done(function(resp){
 			alert("삭제가 완료 되었습니다.");
-			console.log(resp);
 			location.href="/";
 		}).fail(function(error){
 			alert(JSON.stringify(error));
@@ -82,7 +81,7 @@ let index = {
 			boardId: $("#boardId").val(),
 			content: $("#reply-content").val()
 		};
-		console.log(data);
+		//console.log(data);
 		
 		$.ajax({
 			type: "POST",
@@ -92,7 +91,7 @@ let index = {
 			dataType: "json"
 		}).done(function(resp){
 			alert("댓글작성이 완료 되었습니다.");
-			console.log(resp);
+			//console.log(resp);
 			location.href=`/board/${data.boardId}`;
 		}).fail(function(error){
 			alert(JSON.stringify(error));
@@ -110,8 +109,7 @@ let index = {
 		}).fail(function(error){
 			alert(JSON.stringify(error));
 		}); 
-	},
+	}
 
 }
-
 index.init();
